@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %} Django Girls {% endblock title%}
+{% block content %}
+
+
+{% for i in queryset %}
+<div class="card m-5" style="width: 18rem;">
+    <img src="{{i.image.url}} " class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.title}} </h5>
+      <!-- <p id="limited-paragraph" class="card-text">{{i.content}} </p> -->
+       <div class="time" style="display: flex;">
+           <a href="{{i.content.url}}" class="btn btn-primary">More</a>
+           <p class="card-time" style="margin-left: 50px;">{{i.created_time|date:'Y-m-d'}} </p>
+
+       </div>
+    
+    </div>
+  </div>
+  {% endfor %}
+
+
+
+{% endblock content%}
